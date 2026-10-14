@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <rect width="1200" height="300" fill="#0b0f14"/>
+  <g stroke="#1c2530" stroke-width="1">
+    <path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200"/>
+    <path d="M150 0V300M300 0V300M450 0V300M600 0V300M750 0V300M900 0V300M1050 0V300"/>
+  </g>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="70" y="140" font-size="76" font-weight="800" fill="#e6edf3">Nebius-<tspan fill="#76b900">AgentX</tspan></text>
+    <text x="74" y="190" font-size="26" fill="#8b98a9">Autonomous multi-agent code refactoring and security audit</text>
+    <text x="74" y="232" font-size="20" fill="#5d6b7c">Scanner · Refactor · Reviewer  —  NVIDIA Nemotron on Nebius AI Cloud</text>
+  </g>
+  <g transform="translate(980 70)">
+    <circle cx="60" cy="20" r="18" fill="none" stroke="#76b900" stroke-width="4"/>
+    <circle cx="20" cy="110" r="18" fill="none" stroke="#76b900" stroke-width="4"/>
+    <circle cx="100" cy="110" r="18" fill="none" stroke="#76b900" stroke-width="4"/>
+    <path d="M51 36L29 94M69 36L91 94M38 110H82" stroke="#e6edf3" stroke-width="3" fill="none"/>
+  </g>
+</svg>
