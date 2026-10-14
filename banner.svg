@@ -1,18 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
-  <rect width="1200" height="300" fill="#0b0f14"/>
-  <g stroke="#1c2530" stroke-width="1">
-    <path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200"/>
-    <path d="M150 0V300M300 0V300M450 0V300M600 0V300M750 0V300M900 0V300M1050 0V300"/>
-  </g>
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <text x="70" y="140" font-size="76" font-weight="800" fill="#e6edf3">Nebius-<tspan fill="#76b900">AgentX</tspan></text>
-    <text x="74" y="190" font-size="26" fill="#8b98a9">Autonomous multi-agent code refactoring and security audit</text>
-    <text x="74" y="232" font-size="20" fill="#5d6b7c">Scanner · Refactor · Reviewer  —  NVIDIA Nemotron on Nebius AI Cloud</text>
-  </g>
-  <g transform="translate(980 70)">
-    <circle cx="60" cy="20" r="18" fill="none" stroke="#76b900" stroke-width="4"/>
-    <circle cx="20" cy="110" r="18" fill="none" stroke="#76b900" stroke-width="4"/>
-    <circle cx="100" cy="110" r="18" fill="none" stroke="#76b900" stroke-width="4"/>
-    <path d="M51 36L29 94M69 36L91 94M38 110H82" stroke="#e6edf3" stroke-width="3" fill="none"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" role="img" aria-label="Code moving from an issue to a reviewed change"><defs><linearGradient id="panel" x2="1" y2="1"><stop stop-color="#292034"/><stop offset="1" stop-color="#18141f"/></linearGradient><linearGradient id="accent"><stop stop-color="#ff9a62"/><stop offset="1" stop-color="#c7a4ff"/></linearGradient></defs><rect width="640" height="430" rx="20" fill="#18141f"/><g fill="none" stroke="#47344f" opacity=".5"><circle cx="490" cy="220" r="165"/><circle cx="490" cy="220" r="115"/><path d="M0 330h640M0 110h640M180 0v430M450 0v430"/></g><rect x="42" y="56" width="430" height="275" rx="14" fill="url(#panel)" stroke="#665174"/><path d="M42 96h430" stroke="#51405f"/><g fill="#c7a4ff"><circle cx="64" cy="77" r="4"/><circle cx="80" cy="77" r="4" opacity=".5"/><circle cx="96" cy="77" r="4" opacity=".3"/></g><text x="122" y="82" fill="#c0b1cf" font-family="monospace" font-size="12">CODE / INSPECT</text><g stroke-linecap="round" stroke-width="7"><path d="M74 128h70M165 128h108" stroke="#c7a4ff"/><path d="M94 156h200M94 184h128M240 184h148" stroke="#79688f"/><path d="M94 212h100M210 212h70" stroke="#ff9a62"/><path d="M94 240h240M74 268h130" stroke="#79688f"/></g><rect x="315" y="250" width="270" height="132" rx="12" fill="#292032" stroke="#c7a4ff"/><circle cx="347" cy="282" r="12" fill="#ff9a62"/><path d="m342 282 4 4 7-9" fill="none" stroke="#22121c" stroke-width="2.5"/><text x="369" y="287" fill="#f3effa" font-family="sans-serif" font-size="15">A clearer next step</text><path d="M342 315h196M342 337h138M492 337h44" stroke="#c7a4ff" stroke-width="6" stroke-linecap="round" opacity=".65"/><path d="M476 96h60v121" fill="none" stroke="url(#accent)" stroke-width="2"/><circle cx="536" cy="218" r="5" fill="#ff9a62"/><text x="44" y="394" fill="#a797b6" font-family="monospace" font-size="11" letter-spacing="2">INSPECT · EXPLAIN · IMPROVE</text></svg>
