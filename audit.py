@@ -17,12 +17,13 @@ def audit(payload):
     if language == 'python':
         try:
             tree=ast.parse(code)
+            compile(tree,name,'exec')  # Validate context (e.g. await outside a function); never execute.
             extra=inspect(tree,code,name)
         except SyntaxError as exc:
             extra=[syntax_finding(exc,code,name)]
             syntax_valid=False
     source = SourceFile(path=name, language=language, content=code)
-    before = static_scan(source) if syntax_valid else []
+    before = static_scan(source)
     patch = apply_rule_fixes(code, before) if language == 'python' and syntax_valid else None
     fixed = patch.code if patch else code
     revised_valid=syntax_valid
@@ -33,12 +34,13 @@ def audit(payload):
             proposal=''.join(text)
             try:
                 ast.parse(proposal)
+                compile(proposal,name,'exec')
                 fixed=proposal; revised_valid=True
                 extra[0]['fix_example']=text[line-1].strip()
             except SyntaxError: pass
-    after = static_scan(SourceFile(path=name, language=language, content=fixed)) if revised_valid else []
+    after = static_scan(SourceFile(path=name, language=language, content=fixed))
     resolved, unresolved, new = compare_findings(before, after)
-    if not syntax_valid and revised_valid: resolved=[extra[0]['id']]
+    if not syntax_valid and revised_valid: resolved.append(extra[0]['id'])
     diff = ''.join(difflib.unified_diff(code.splitlines(True), fixed.splitlines(True), fromfile='a/'+name, tofile='b/'+name))
     findings=[{**f.model_dump(mode='json'),'kind':f.category.value,'confidence':'Rule-based','fix_example':''} for f in before]+extra
     remaining=[{**f.model_dump(mode='json'),'kind':f.category.value} for f in after]

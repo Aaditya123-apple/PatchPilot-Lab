@@ -13,3 +13,11 @@ Full Python app features such as Nebius AI reasoning and remote Git workflows ne
 Python now includes Pyflakes 4.0.3 name/scope diagnostics, syntax explanations and a supported missing-colon proposal, selected runtime pitfalls, and conditional performance proposals with code examples. JavaScript includes Acorn 8.19.0 parsing, selected bugs and nested-loop efficiency hints, alongside original security rules. TypeScript retains security-pattern checks only. Pyflakes is bundled in pyflakes.whl (its license is included in wheel metadata); Acorn's license is ACORN-LICENSE.
 
 These checks do not execute submitted code, prove correctness, find every logical issue, or benchmark performance. Suggested efficiency examples are not automatically applied. Security and supported syntax patches are shown for review, syntax checked, and rescanned.
+
+## Final review improvements
+
+The workbench includes search and severity/category filters, keyboard analysis (Ctrl/Cmd+Enter), keyboard-accessible file upload, live file-size feedback, and explicit coverage by language. Scan results are tied to a request and editor revision: changing code, language, or filename during a scan discards the old result. File/example reads also cannot overwrite newer edits. Cancel, timeout, worker startup failure, and retry preserve the editor text and show a recovery action.
+
+Additional Python checks cover compile-context errors (without executing code), negative/string literal indexes, calls to literals, incompatible literal string addition, and tuple assertions that always pass. Security text checks continue when Python syntax is broken. JavaScript adds literal null access, calls to non-callable literals, BigInt/Number arithmetic, duplicate object keys, unreachable statements, and conditional reviews for async Promise executors and assignments in conditions. Loop-cost checks reset at function boundaries. JavaScript does not include general undefined-name or type analysis; JSX and TypeScript syntax are not supported.
+
+Fix syntax first and reanalyse: a repaired program can reveal additional findings. No finite static rule set detects all errors. Behavioural tests, dependency checks, type checking, and profiling remain project-level work.
