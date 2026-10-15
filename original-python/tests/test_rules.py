@@ -83,7 +83,7 @@ NEGATIVE = [
     ("PY016", "import sys\nwith open(sys.argv[1]) as f:\n    print(f.read())\n"),
     ("PY016", "from werkzeug.utils import secure_filename\n" + route("return open(secure_filename(request.args['f'])).read()")),
     ("PY008", "token_type = 'unstructured'\n"),
-    ("PY008", "PASSWORD_FIELD = 'password'\npassword = 'NOT_A_REAL_TEST_CREDENTIAL_123'\n"),
+    ("PY008", "import os\nPASSWORD_FIELD = 'password'\npassword = os.environ['APP_PASSWORD']\n"),
     ("PY001", "exec('print(1)')\n"),
     ("PY005", "import hashlib\nh = hashlib.md5(data, usedforsecurity=False)\n"),
     ("PY004", "import yaml\ndata = yaml.load(text, Loader=yaml.SafeLoader)\n"),
