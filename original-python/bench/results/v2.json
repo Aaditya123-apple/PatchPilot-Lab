@@ -1,0 +1,181 @@
+{
+  "label": "v2",
+  "securityeval": {
+    "samples": 121,
+    "detected": 85,
+    "cwe_matched": 64,
+    "detect_rate": 0.702,
+    "cwe_match_rate": 0.529,
+    "cwes_covered": 35,
+    "cwes_total": 69,
+    "misses": [
+      "CWE-020_author_1.py",
+      "CWE-020_author_2.py",
+      "CWE-020_codeql_1.py",
+      "CWE-020_codeql_2.py",
+      "CWE-020_codeql_3.py",
+      "CWE-020_codeql_4.py",
+      "CWE-022_codeql_2.py",
+      "CWE-080_author_1.py",
+      "CWE-094_author_1.py",
+      "CWE-099_sonar_1.py",
+      "CWE-116_author_1.py",
+      "CWE-116_codeql_1.py",
+      "CWE-1204_sonar_1.py",
+      "CWE-193_author_1.py",
+      "CWE-200_author_1.py",
+      "CWE-250_mitre_1.py",
+      "CWE-252_author_1.py",
+      "CWE-269_mitre_1.py",
+      "CWE-283_mitre_1.py",
+      "CWE-285_codeql_1.py",
+      "CWE-295_author_2.py",
+      "CWE-306_pearce_1.py",
+      "CWE-319_author_1.py",
+      "CWE-321_author_1.py",
+      "CWE-327_codeql_2.py",
+      "CWE-329_sonar_1.py",
+      "CWE-331_author_1.py",
+      "CWE-339_mitre_1.py",
+      "CWE-347_sonar_3.py",
+      "CWE-385_mitre_1.py",
+      "CWE-400_sonar_1.py",
+      "CWE-406_mitre_1.py",
+      "CWE-414_author_1.py",
+      "CWE-425_author_1.py",
+      "CWE-434_pearce_1.py",
+      "CWE-434_pearce_2.py",
+      "CWE-454_author_1.py",
+      "CWE-462_mitre_1.py",
+      "CWE-477_author_1.py",
+      "CWE-502_author_1.py",
+      "CWE-521_sonar_1.py",
+      "CWE-521_sonar_2.py",
+      "CWE-522_author_1.py",
+      "CWE-522_pearce_1.py",
+      "CWE-595_author_1.py",
+      "CWE-601_sonar_3.py",
+      "CWE-601_sonar_4.py",
+      "CWE-641_sonar_1.py",
+      "CWE-643_sonar_1.py",
+      "CWE-703_author_1.py",
+      "CWE-703_author_2.py",
+      "CWE-703_author_3.py",
+      "CWE-730_author_1.py",
+      "CWE-835_author_1.py",
+      "CWE-841_mitre_1.py",
+      "CWE-941_mitre_1.py",
+      "CWE-943_sonar_1.py"
+    ]
+  },
+  "bandit": {
+    "files": 86,
+    "positive_files": 59,
+    "negative_files": 27,
+    "file_recall": 0.864,
+    "issue_recall": 0.595,
+    "negative_file_alarms": 3,
+    "missed_files": [
+      "exec.py",
+      "os-popen.py",
+      "urlopen.py",
+      "xml_xmlrpc.py",
+      "paramiko_injection.py",
+      "pycrypto.py",
+      "snmp.py",
+      "huggingface_unsafe_download.py"
+    ]
+  },
+  "stdlib": {
+    "files": 594,
+    "kloc": 278.3,
+    "medium_plus_alarms": 97,
+    "alarms_per_kloc": 0.349,
+    "top_rules": [
+      [
+        "PY001",
+        39
+      ],
+      [
+        "PY002",
+        15
+      ],
+      [
+        "PY003",
+        15
+      ],
+      [
+        "PY025",
+        6
+      ],
+      [
+        "PY005",
+        5
+      ],
+      [
+        "PY015",
+        4
+      ],
+      [
+        "PY007",
+        4
+      ],
+      [
+        "PY047",
+        3
+      ],
+      [
+        "PY033",
+        2
+      ],
+      [
+        "PY028",
+        1
+      ],
+      [
+        "PY030",
+        1
+      ],
+      [
+        "PY018",
+        1
+      ]
+    ],
+    "scan_seconds": 9.43,
+    "kloc_per_second": 29.5,
+    "slowest_ms": 208.2
+  },
+  "fixer": {
+    "fix_files": 112,
+    "fix_addressed": 267,
+    "fix_still_present": 0,
+    "fix_new_findings": 6
+  },
+  "crashes": [],
+  "fix_failures": [
+    {
+      "file": "CWE-078_author_1.py",
+      "error": "fix introduced: PY002@8"
+    },
+    {
+      "file": "CWE-078_codeql_1.py",
+      "error": "fix introduced: PY002@15"
+    },
+    {
+      "file": "CWE-116_author_1.py",
+      "error": "fix introduced: PY002@17"
+    },
+    {
+      "file": "CWE-295_codeql_1.py",
+      "error": "fix introduced: PY036@4"
+    },
+    {
+      "file": "CWE-522_pearce_1.py",
+      "error": "fix introduced: PY039@17"
+    },
+    {
+      "file": "stdlib/mailcap.py",
+      "error": "fix introduced: PY002@285"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"name":"patchpilot-workbench","version":"2.0.0","private":true,"type":"module","license":"MIT","engines":{"node":">=22"},"scripts":{"start":"node --env-file=.env server/start.mjs","test":"node --test test/nebius-review.test.mjs"}}

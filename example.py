@@ -1,4 +1,5 @@
 """A deliberately insecure inventory service used to demo Nebius-AgentX. Do not deploy."""
+# All credential-looking values below are deliberately fictional test data.
 
 import asyncio
 import hashlib
@@ -13,8 +14,8 @@ import yaml
 from flask import Flask, request
 
 app = Flask(__name__)
-DB_PASSWORD = "hunter2-prod-db"
-API_TOKEN = "demo-token-1234567890"
+DB_PASSWORD = 'NOT_A_REAL_PASSWORD_DEMO_ONLY_123'  # Fictional scanner fixture; never a usable credential.
+API_TOKEN = 'NOT_A_REAL_API_TOKEN_DEMO_ONLY_123'  # Fictional scanner fixture; never a usable credential.
 
 
 def get_db():

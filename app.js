@@ -15,7 +15,7 @@ function stopEngine(message){worker?.terminate();ready=false;pending=null;clearT
 function init(){
   worker?.terminate();clearTimeout(loadTimer);clearTimeout(timer);ready=false;pending=null;finish();
   $('status').textContent='Loading analysis engine…';$('retry').hidden=true;$('error').hidden=true;
-  try{worker=new Worker('worker.js?v=3',{type:'module'});}catch{stopEngine('Your browser could not start the analysis engine. Open this site in a current browser with JavaScript enabled.');return;}
+  try{worker=new Worker('worker.js?v=4',{type:'module'});}catch{stopEngine('Your browser could not start the analysis engine. Open this site in a current browser with JavaScript enabled.');return;}
   const current=worker;
   loadTimer=setTimeout(()=>stopEngine('The engine could not finish loading. Check your connection and retry.'),120000);
   worker.onmessage=({data})=>{
@@ -39,7 +39,7 @@ function init(){
 function download(name,content,type='text/plain'){
   const url=URL.createObjectURL(new Blob([content],{type})),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
 }
-function invalidate(){revision++;last=null;$('results').hidden=true;$('error').hidden=true;if(ready&&!busy)$('status').textContent='Input changed · analyse again';}
+function invalidate(){document.dispatchEvent(new CustomEvent('patchpilot:inputchanged'));revision++;last=null;$('results').hidden=true;$('error').hidden=true;if(ready&&!busy)$('status').textContent='Input changed · analyse again';}
 function editorChanged(){
   const count=$('code').value.split('\n').length,bytes=new TextEncoder().encode($('code').value).length;
   $('gutter').textContent=Array.from({length:count},(_,i)=>i+1).join('\n');$('lines').textContent=count+(count===1?' line':' lines');
@@ -138,3 +138,14 @@ $('report').onclick=()=>{if(last)download('patchpilot-report.json',JSON.stringif
 $('download-patch').onclick=()=>{if(last?.diff)download('patchpilot.patch',last.diff);};$('download-code').onclick=()=>{if(last?.diff)download(last.name,last.patched);};
 $('apply-proposal').onclick=()=>{if(!last?.diff)return;const code=last.patched;cancelInput();$('code').value=code;editorChanged();$('status').textContent='Proposal loaded · analyse it again';$('code').focus();};
 coverage();editorChanged();init();
+
+async function validateAIProposal(code,language,name){
+ if(!ready||busy)return {valid:null,message:'Local validation was unavailable. Run the proposed code through local checks.'};
+ const current=worker,id='validation-'+(++requestId);
+ return new Promise(resolve=>{
+  const cleanup=()=>{clearTimeout(timeout);current.removeEventListener('message',listener);};
+  const listener=({data})=>{if(data.id!==id)return;cleanup();resolve(data.type==='validation'?data.validation:{valid:null,message:'Local validation could not complete.'});};
+  const timeout=setTimeout(()=>{cleanup();resolve({valid:null,message:'Local validation timed out.'});},20000);
+  current.addEventListener('message',listener);current.postMessage({operation:'validate',id,code,language,name});
+ });
+}
